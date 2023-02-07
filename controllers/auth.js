@@ -58,7 +58,7 @@ const register = async (req,res)=>{
     
 }
 
-const helloWorld = (req,res)=>{
-    res.status(200).send('Hello world')
+const helloName = (req,res)=>{
+    res.status(200).json({text:`hello ${req.user.name}`})
 }
-module.exports = {login,register,helloWorld}
+module.exports = {login,register,helloName}
