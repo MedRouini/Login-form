@@ -19,9 +19,9 @@ const login = async (req,res)=>{
     if(!user){
         throw new UnauthorizationError('Please provide valid Credentials')
     }
-    const isPassword = await bcrypt.compare(password,user.password)
+    const isPasswordCorrect = await bcrypt.compare(password,user.password)
 
-    if(!isPassword){
+    if(!isPasswordCorrect){
         throw new UnauthorizationError('Please provide valid Credentials')
     }
 
