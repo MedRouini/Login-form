@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <button id="logout">logout</button>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const container = document.getElementById('container');
+        const token = localStorage.getItem('token')
+        axios.get('/api/v1/auth/dashboard',{
+            headers:{
+                'Authorization': `Bearer ${token}`
+            }
+        }).then((response)=>{
+            container.innerText=response.data.text
+        }).catch((error)=>{
+            alert(error.response.data.msg)
+            window.location.href='login.html'
+        })
+
+        document.getElementById('logout').addEventListener('click',(e)=>{
+            localStorage.removeItem('token');
+            window.location.href='login.html'
+        })
+        
+    </script>
+</body>
+</html>

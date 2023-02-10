@@ -10,6 +10,8 @@ const errorHandlerMiddleware = (err,req,res,next)=>{
     //Duplicate Error
     if(err.code && err.code===11000){
         msg = `${Object.keys(err.keyValue)} already used, please use another ${Object.keys(err.keyValue)}`
+        return res.status(StatusCodes.BAD_REQUEST).json({msg})
+
     }
     
     if(err.name === 'ValidationError'){

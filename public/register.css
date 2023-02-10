@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+:root{
+    --primary-font: 'Poppins', sans-serif
+}
+
+.container{
+    font-family: var(--primary-font);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#name{
+    border: 1px solid black;
+    border-radius: 3px;
+    
+}

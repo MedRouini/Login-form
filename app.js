@@ -12,6 +12,7 @@ const notFoundMiddleware = require('./middlewares/not-found-middleware')
 //Routers
 const authRouter = require('./routes/auth');
 
+app.use(express.static('./public'))
 app.use(express.json())
 
 
